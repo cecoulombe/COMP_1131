@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ConvertUnits {
     // convert input from the user from Imperial gallons into litres
     // use the formula litres = gallows * 4.54609.
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // print a line asking for input from the user
         // scan the input from the user and make sure it is the valid data type (throw an error if not)
         // perform the conversion on the data received
