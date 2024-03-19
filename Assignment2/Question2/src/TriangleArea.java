@@ -28,8 +28,36 @@ public class TriangleArea {
 
         double semiPerimeter;
 
+        double areaSquared;
+        double area;
+
         Scanner scan = new Scanner(System.in);
 
+        // prompt the user for the three values
+        System.out.println("Please enter a number for the length of side A. (note: alphabet characters will result in an error)");
 
+        inputA = scan.nextDouble();
+
+        System.out.println("Please enter another number for the length of side B.");
+
+        inputB = scan.nextDouble();
+
+        System.out.println("Please enter a final number for the length of side C.");
+
+        inputC = scan.nextDouble();
+
+        scan.close();
+
+        // compute the semi perimeter (sum of sides divided by two)
+        semiPerimeter = (inputA + inputB + inputC) / 2.0;
+
+
+        // compute the area (square root of (s(s-a)(s-b)(s-c)))
+        areaSquared = semiPerimeter * (semiPerimeter - inputA) * (semiPerimeter - inputB) * (semiPerimeter - inputC);
+
+        area = Math.sqrt(areaSquared);
+
+        // print the area
+        System.out.println("The area of a triangle with side A = " + inputA + ", side B = " + inputB + ", and side C = " + inputC + ", is equal to " + area + ".");
     }
 }
