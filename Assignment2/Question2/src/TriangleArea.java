@@ -34,17 +34,38 @@ public class TriangleArea {
         Scanner scan = new Scanner(System.in);
 
         // prompt the user for the three values
-        System.out.println("Please enter a number for the length of side A. (note: alphabet characters will result in an error)");
+        System.out.println("Please enter a number for the length of side A. (note: must enter a nonnegative number or it will result in an error)");
 
         inputA = scan.nextDouble();
 
+        if(inputA < 0)
+        {
+            System.out.println("That is not a valid number, please enter a new, non-negative value");
+
+            inputA = scan.nextDouble();
+        }
+            
         System.out.println("Please enter another number for the length of side B.");
 
         inputB = scan.nextDouble();
 
+        if(inputB < 0)
+        {
+            System.out.println("That is not a valid number, please enter a new, non-negative value");
+
+            inputB = scan.nextDouble();
+        }
+
         System.out.println("Please enter a final number for the length of side C.");
 
         inputC = scan.nextDouble();
+
+        if(inputC < 0)
+        {
+            System.out.println("That is not a valid number, please enter a new, non-negative value");
+
+            inputC= scan.nextDouble();
+        }
 
         scan.close();
 
