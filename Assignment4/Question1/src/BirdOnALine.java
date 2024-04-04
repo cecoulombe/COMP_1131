@@ -53,7 +53,7 @@ public class BirdOnALine {
 
             userInput = scan.nextLine();
 
-            while(!ALL_COMMANDS.contains(userInput))
+            while(!ALL_COMMANDS.contains(userInput.toLowerCase()))
             {
                 System.out.println("That is not a valid input. Please try again. ");
 
