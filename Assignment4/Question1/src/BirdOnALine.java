@@ -90,5 +90,7 @@ public class BirdOnALine {
         }
         System.out.println("You chose to leave the bird to enjoy the view.");
         System.out.println(bird);
+
+        scan.close();
     }
 }
