@@ -19,11 +19,76 @@
  * 
  */
 
+ import java.util.Scanner;
+
 public class BirdOnALine {
     public static void main(String[] args) throws Exception {
         // instantiate the bird
         // accept inputs from the user (hop, turn, output, and exit)
         // use those outputs to call the corresponding method from the Bird
         // continue until the user wants to output
+
+        // Local variables
+        String userInput = "";
+
+        final String QUIT_KEY = "0";
+
+        final String HOP = "h";
+        final String TURN_AROUND = "t";
+        final String BIRD_POS = "p";
+
+        final String ALL_COMMANDS = QUIT_KEY + HOP + TURN_AROUND + BIRD_POS;
+
+        // instantiate objects
+        Bird bird = new Bird();  // have the user input if they want the bird to start at a specific point in the final version
+        
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("You watch as a beautiful bird sits on the center of a 10 metre long powerline.");
+        // while the user still wants to play, give them any of four options (hop, turn, output, and exit)
+        while(!userInput.equalsIgnoreCase(QUIT_KEY))
+        {
+            System.out.println("What would you like the bird to do next?");
+            System.out.println("(Hop = H, Turn around = T, Bird position = P, or quit = 0)");
+
+            userInput = scan.nextLine();
+
+            while(!ALL_COMMANDS.contains(userInput))
+            {
+                System.out.println("That is not a valid input. Please try again. ");
+
+                userInput = scan.nextLine();
+            }
+
+            if(userInput.equalsIgnoreCase(HOP))
+            {
+                boolean canHop = bird.hop();
+                if(!canHop)
+                {
+                    System.out.println("The bird is sitting at the end of the power line. You can either stay here and enjoy the view or turn around using \"T\" and continue moving.");
+                }
+                else
+                {
+                    System.out.println("The bird hopped one space forward.");
+                }
+            }
+            else
+            {
+                if(userInput.equalsIgnoreCase(TURN_AROUND))
+                {
+                    bird.turnAround();
+                    System.out.println("The bird turned around.");
+                }
+                else
+                {
+                    if(userInput.equalsIgnoreCase(BIRD_POS))
+                    {
+                        System.out.println(bird);
+                    }
+                }
+            }
+        }
+        System.out.println("You chose to leave the bird to enjoy the view.");
+        System.out.println(bird);
     }
 }

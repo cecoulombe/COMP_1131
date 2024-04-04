@@ -17,7 +17,7 @@ public class Bird {
 
     // Class variables
     int currentPosition;
-    int jumpDistance = 1;
+    final int JUMP_DISTANCE = 1;
 
     int currentDirection = 1;   // current direction of 1 means facing right, -1 means facing left.
 
@@ -32,6 +32,7 @@ public class Bird {
         currentPosition = landingPoint;
     }
     
+    /* Use this overloaded constructor if you decide you want the user to control where the bird lands on the line
     // -----------------------------------------------------------------------------------------
     // Constructor: Create a bird which will come down and sit at the position on the line as 
     // determined by the user.
@@ -48,6 +49,8 @@ public class Bird {
             currentPosition = rand.nextInt(-5, 6);  // DOUBLE CHECK THAT THIS IS VALID
         }
     }
+    */
+
 
     // -----------------------------------------------------------------------------------------
     // Hop: move the bird over one unit in the direction it is facing so long as it is still on 
@@ -56,7 +59,7 @@ public class Bird {
     public Boolean hop()
     {
         // move the bird over one jump length in the direction it is facing, so long as it is still on the powerline
-        int intendedPosition = currentPosition + (jumpDistance * currentDirection);
+        int intendedPosition = currentPosition + (JUMP_DISTANCE * currentDirection);
 
         if(Math.abs(intendedPosition) <= Math.abs(powerLineLength / 2))
         {
