@@ -16,8 +16,51 @@
  * 
  */
 
+import java.util.Scanner;
+
 public class DiceRoller {
     public static void main(String[] args) throws Exception {
-        
+        // take user input to decide if they want a default or specified number of faces
+        // roll the dice 2x times
+        // format the output so that its pretty
+
+        // Variables
+        int userInput;
+
+        String another = "y";
+
+
+        // Instantiate scanner
+        Scanner scan = new Scanner(System.in);
+
+        // make sure the user wants to roll another die
+        while(another.equalsIgnoreCase("y"))
+        {
+            // take input from the user to decide what size dice to roll
+            System.out.println("How many faces do you want the dice to have? Enter \"0\" for a default 6-faced dice, or enter an integer number of faces.");
+            System.out.println("Note that the dice must be a regular 4, 6, 8, 12, or 20, otherwise it will result in the 6-sized default.");
+
+            userInput = scan.nextInt();
+
+            Die dice = null;
+
+            if(userInput == 0)
+            {
+                dice = new Die();
+            }
+            else
+            {
+                dice = new Die(userInput);
+            }
+
+            int diceRoll = dice.roll();
+            System.out.println(diceRoll);
+
+
+
+            System.out.println("Do you want to roll another die?");
+            another = scan.next();
+        }
+        System.out.println("App end.");
     }
 }

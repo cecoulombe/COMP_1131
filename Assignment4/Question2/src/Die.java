@@ -5,7 +5,7 @@
  * requires the following methods and/or modifications:
  *      * A constructor with no parameters that creates a default 6-sided die
  *      * A consturctor with one parameter that indicates how many faces the die is to have. Check that it is one of the permitted 
- *      values, otehrwise default to a 6-sided die.
+ *      values, otherwise default to a 6-sided die.
  *      * The roll() method given needs to be modified to work within the number of faces established by the constructors.
  *      * The setFaceValue() method needs to have logic added to ensure the new incoming face value is within the allowable limits 
  *      for the number of faces.
@@ -15,6 +15,60 @@
  *      One".
  */
 
-public class Die {
+ import java.util.Random;
 
+public class Die {
+    // default constructor
+    // 1 parameter constructor
+    // roll method that works with any number of dice
+    // setFaceValue that makes sure its between the allowable face values for that dice
+    // get_ method that returns number
+    // get_ method that returns text
+    // toString that returns num : text
+
+    // Class variables
+    int maxNumOfFaces;
+
+    int faceValue;
+
+    final int DEFAULT = 6;
+
+    // Random object
+    Random rand = new Random();
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // Die() creates a default six sided dice
+    //---------------------------------------------------------------------------------------------------------------------
+    public Die()
+    {
+        maxNumOfFaces = DEFAULT;
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // Die() creates a die with the specified number of faces
+    //---------------------------------------------------------------------------------------------------------------------
+    public Die(int userInputFaces)
+    {
+        if(userInputFaces == 4 || userInputFaces == 6 || userInputFaces == 8 || userInputFaces == 12 || userInputFaces == 20)
+        {
+            maxNumOfFaces = userInputFaces;
+        }
+        else
+        {
+            maxNumOfFaces = DEFAULT;
+        }
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // roll() rolls a random face of the die determined from the size of the die chosen on instantiation and returns to the 
+    // driver
+    //---------------------------------------------------------------------------------------------------------------------
+    public int roll()
+    {
+        faceValue = rand.nextInt(maxNumOfFaces) + 1;
+
+        return faceValue;
+    }
+
+    
 }
