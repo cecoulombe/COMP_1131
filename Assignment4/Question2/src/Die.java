@@ -60,6 +60,64 @@ public class Die {
     }
 
     //---------------------------------------------------------------------------------------------------------------------
+    // getMaxFace() tells the user how many faces there are on the chosen die
+    //---------------------------------------------------------------------------------------------------------------------
+    public int getMaxFace()
+    {
+        return maxNumOfFaces;
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // getCurrentFaceNum() returns the number that is currently displayed on the face
+    //---------------------------------------------------------------------------------------------------------------------
+    public int getCurrentFaceNum()
+    {
+        return faceValue;
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // getCurrentFaceStr() returns the number that is currently displayed on the face as a written word
+    //---------------------------------------------------------------------------------------------------------------------
+    public String getCurrentFaceStr()
+    {
+        final String[] numNames = {
+            "One", 
+            "Two", 
+            "Three", 
+            "Four", 
+            "Five", 
+            "Six", 
+            "Seven", 
+            "Eight", 
+            "Nine", 
+            "Ten", 
+            "Eleven", 
+            "Twelve", 
+            "Thirteen", 
+            "Fourteen", 
+            "Fifteen", 
+            "Sixteen", 
+            "Seventeen", 
+            "Eighteen", 
+            "Nineteen", 
+            "Twenty"
+        };
+
+        return numNames[faceValue - 1];
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
+    // setFaceValue() sets the face value as the value input by the user
+    //---------------------------------------------------------------------------------------------------------------------
+    public void setFaceValue(int userInput)
+    {
+        if(userInput > 0 && userInput <= maxNumOfFaces)
+        {
+            faceValue = userInput;
+        }
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------
     // roll() rolls a random face of the die determined from the size of the die chosen on instantiation and returns to the 
     // driver
     //---------------------------------------------------------------------------------------------------------------------
@@ -70,5 +128,11 @@ public class Die {
         return faceValue;
     }
 
-    
+    //---------------------------------------------------------------------------------------------------------------------
+    // toString() returns the current face value in the num : Str format
+    //---------------------------------------------------------------------------------------------------------------------
+    public String toString()
+    {
+        return getCurrentFaceNum() + " : " + getCurrentFaceStr();
+    }
 }

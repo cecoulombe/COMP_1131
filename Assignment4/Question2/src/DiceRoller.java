@@ -53,12 +53,23 @@ public class DiceRoller {
                 dice = new Die(userInput);
             }
 
-            int diceRoll = dice.roll();
-            System.out.println(diceRoll);
+            // Testing the die methods
+            // int diceRoll = dice.roll();
+            // System.out.println(diceRoll);
+
+            // dice.setFaceValue(3);
+            // int dieNum = dice.getCurrentFaceNum();
+            // System.out.println("The current face num is: "  + dieNum + " or " + dice.getCurrentFaceStr());
 
 
+            // the the die 2 * numOfFaces times and report the results for each using a formatted toString output
+            for(int i = 0; i < dice.getMaxFace() * 2; i++)
+            {
+                dice.roll();
+                System.out.println(dice);
+            }
 
-            System.out.println("Do you want to roll another die?");
+            System.out.println("Do you want to roll another die? (y/n)");
             another = scan.next();
         }
         System.out.println("App end.");
