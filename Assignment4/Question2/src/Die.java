@@ -109,11 +109,11 @@ public class Die {
     //---------------------------------------------------------------------------------------------------------------------
     // setFaceValue() sets the face value as the value input by the user
     //---------------------------------------------------------------------------------------------------------------------
-    public void setFaceValue(int userInput)
+    public void setFaceValue(int value)
     {
-        if(userInput > 0 && userInput <= maxNumOfFaces)
+        if(value > 0 && value <= maxNumOfFaces)
         {
-            faceValue = userInput;
+            faceValue = value;
         }
     }
 
