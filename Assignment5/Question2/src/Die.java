@@ -2,6 +2,8 @@
  * NOTE: Class is adapted from Listing 5.2, Chapter 5 Writing Classes in textbook: Lewis, J., DePasquale, P., & Chase, J. 
  * (2020). Java Foundations: Introduction to Program Design and Data Structures (5th ed.). Boston, MA: Pearson. ISBN: 
  * 978-0-13-520597-6
+ *      Adaptations include: addition of the getFaceWord() method and changes to the representation of the results as 
+ *      returned by the toString() method
  * 
  * Date: April 19, 2024
  * Course: COMP 1131
@@ -52,11 +54,22 @@ public class Die {
     }
 
     //--------------------------------------------------------------------------------------------------------------------
-    // getFaceWord: accessor which returns the textual representation of the die
+    // getFaceWord: returns the textual representation of the die, only to be called by the object itself
     //--------------------------------------------------------------------------------------------------------------------
-    public String getFaceWord()
+    private String getFaceWord()
     {
-        final String[] numToText = {"One", "Two", "Three", "Four", "Five", "Six"}
+        final String[] TEXT_NUMS = {"One", "Two", "Three", "Four", "Five", "Six"};
 
+        return TEXT_NUMS[faceValue - 1];
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------
+    // toString: returns the string representation of the current face value of the die
+    //--------------------------------------------------------------------------------------------------------------------
+    public String toString()
+    {
+        String result = Integer.toString(faceValue) + " : " + getFaceWord();
+
+        return result;
     }
 }
