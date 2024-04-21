@@ -65,5 +65,7 @@ public class FibonacciDriver {
 
         // tell the user the Nth value
         System.out.println("The " + inputValue + valueSuffix + " value using the Fibonacci sequence is " + value);
+
+        scan.close();
     }
 }
