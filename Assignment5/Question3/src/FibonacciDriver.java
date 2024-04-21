@@ -22,6 +22,9 @@ public class FibonacciDriver {
         final int FIRST_NUM = 1;    // I have chosen 1 as my first number; however, the Fibonacci sequence can be started at 0 or the logic can be applied to any starting value
         final int SECOND_NUM = 1;
 
+        int value;
+        String valueSuffix;
+
         Scanner scan = new Scanner(System.in);
 
         // prompt the user for the value they want to know
@@ -39,10 +42,10 @@ public class FibonacciDriver {
         }
 
         // call the static method to get the value from the sequence
-        int value = FibonacciSequence.fibSum(inputValue, FIRST_NUM, SECOND_NUM);
+        value = FibonacciSequence.fibSum(inputValue, FIRST_NUM, SECOND_NUM);
         
         // determining the proper suffix for N 
-        String valueSuffix = "";
+        valueSuffix = "";
         if(inputValue == 1)
         {
             valueSuffix = "st";
