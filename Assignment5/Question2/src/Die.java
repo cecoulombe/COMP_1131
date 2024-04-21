@@ -14,9 +14,9 @@
 // Die represents a single die with faces showing values between 1 and 6.
 public class Die {
 
-    private final int MAX = 6;  // maximum face value
+    final int MAX = 6;  // maximum face value
 
-    private int faceValue;  // the current value showing on the dice
+    int faceValue;  // the current value showing on the dice
 
     //--------------------------------------------------------------------------------------------------------------------
     // Constructor: sets the intial face value for this die.
