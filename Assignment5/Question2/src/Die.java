@@ -68,7 +68,7 @@ public class Die {
     //--------------------------------------------------------------------------------------------------------------------
     public String toString()
     {
-        String result = Integer.toString(faceValue) + " : " + getFaceWord();
+        String result = faceValue + " : " + getFaceWord();
 
         return result;
     }

@@ -14,9 +14,51 @@
  *      output the results of 10 rolls of each set.
  */
 
+ import java.util.Scanner;
 public class DiceDriver {
     public static void main(String[] args) throws Exception {
         // create a diceSet with the specified number of dice in the set.
         // ask the user how many times they want to roll the dice and print the results for each time
+
+        // Variables
+        int inputNumOfDice;
+        int inputNumOfRolls;
+
+        String diceResults = "";
+
+        Scanner scan = new Scanner(System.in);
+
+        // ask the user for the size of the dice set and check that it is a valid input
+        System.out.print("Please enter a non-zero, positive integer to represent the number of dice in the set: ");
+        inputNumOfDice = scan.nextInt();
+        System.out.println();
+
+        while(inputNumOfDice <= 0)
+        {
+            System.out.println("Please enter a non-zero, positive integer:");
+            inputNumOfDice = scan.nextInt();
+        }
+
+        // instantiate the set of dice
+        DiceSet dice = new DiceSet(inputNumOfDice);
+
+        // ask the user for the number of times to roll the set
+        System.out.print("Please enter a positive integer to represent the number of times you want to roll the set: ");
+        inputNumOfRolls = scan.nextInt();
+        System.out.println();
+
+        while(inputNumOfRolls < 0)
+        {
+            System.out.println("Please enter a positive integer:");
+            inputNumOfRolls = scan.nextInt();
+        }
+
+        scan.close();
+
+        // roll the dice set and print the results
+        diceResults = dice.rollSet(inputNumOfRolls);
+
+        System.out.println("The set of " + inputNumOfDice + " dice was rolled a total of " + inputNumOfRolls + " times: \n" + diceResults);
+
     }
 }
